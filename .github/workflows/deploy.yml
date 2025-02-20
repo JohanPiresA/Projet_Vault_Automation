@@ -29,7 +29,7 @@ jobs:
 
       - name: Retrieve secrets from Vault
         run: |
-          API_KEY=$(vault kv get -field=api_key secret/myapp)
+          API_KEY=$(vault kv get secret/db)
           echo "API_KEY=$API_KEY" >> $GITHUB_ENV
 
       - name: Deploy application
