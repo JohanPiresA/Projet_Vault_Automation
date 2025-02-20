@@ -1,0 +1,34 @@
+name: Deploy with Vault Secrets
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Vault CLI
+        run: |
+          sudo apt update && sudo apt install -y vault
+          vault --version
+
+      - name: Configure Vault
+        run: |
+          export VAULT_ADDR="https://vault.example.com"
+          export VAULT_TOKEN="${{ secrets.VAULT_TOKEN }}"
+
+      - name: Retrieve secrets from Vault
+        run: |
+          API_KEY=$(vault kv get -field=api_key secret/myapp)
+          echo "API_KEY=$API_KEY" >> $GITHUB_ENV
+
+      - name: Deploy application
+        run: |
+          echo "Deploying app with API_KEY: $API_KEY"
+
