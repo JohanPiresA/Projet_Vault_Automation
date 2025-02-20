@@ -24,7 +24,7 @@ jobs:
 
       - name: Configure Vault
         run: |
-          export VAULT_ADDR="https://vault.example.com"
+          export VAULT_ADDR="https://random-subdomain.ngrok-free.app"
           export VAULT_TOKEN="${{ secrets.VAULT_TOKEN }}"
 
       - name: Retrieve secrets from Vault
