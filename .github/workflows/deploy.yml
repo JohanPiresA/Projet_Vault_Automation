@@ -1,4 +1,4 @@
-name: Deploy with Vault Secrets
+name: Deploy with Vault Secret
 
 on:
   push:
