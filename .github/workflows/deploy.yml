@@ -24,7 +24,7 @@ jobs:
 
       - name: Configure Vault
         run: |
-          echo "VAULT_ADDR=https://random-subdomain.ngrok-free.app" >> $GITHUB_ENV
+          echo "VAULT_ADDR=https://424a-91-167-171-1.ngrok-free.app" >> $GITHUB_ENV
           echo "VAULT_TOKEN=${{ secrets.VAULT_TOKEN }}" >> $GITHUB_ENV
 
 
