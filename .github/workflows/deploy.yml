@@ -30,7 +30,7 @@ jobs:
 
       - name: Retrieve secrets from Vault
         run: |
-          API_KEY=$(vault kv get -field=value secret/data/db)
+          API_KEY=$(vault kv get -field=password secret/my-secret)
           echo "API_KEY=$API_KEY" >> $GITHUB_ENV
 
 
