@@ -24,8 +24,9 @@ jobs:
 
       - name: Configure Vault
         run: |
-          export VAULT_ADDR="https://random-subdomain.ngrok-free.app"
-          export VAULT_TOKEN="${{ secrets.VAULT_TOKEN }}"
+          echo "VAULT_ADDR=https://random-subdomain.ngrok-free.app" >> $GITHUB_ENV
+          echo "VAULT_TOKEN=${{ secrets.VAULT_TOKEN }}" >> $GITHUB_ENV
+
 
       - name: Retrieve secrets from Vault
         run: |
